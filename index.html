@@ -27,7 +27,7 @@
                 <div class="searchbar d-flex gap-2">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <select class="form-select form-select-sm" id="searchOptions">
-                        <option selected disabled>All</option>
+                        <option selected disabled>Choose one</option>
                         <option value="name">Name</option>
                         <option value="username">Username</option>
                         <option value="email">Email</option>
@@ -35,12 +35,19 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 d-none results-not-found"></div>
-        </div>
-        <div class="row py-5">
+        <div class="row spinner-container">
             <div class="col-12">
-                <div class="table-responsive">
+                <div class="d-flex justify-content-center py-5 m-5 ">
+                    <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row results-not-found d-none"></div>
+        <div class="row pt-3 ">
+            <div class="col-12">
+                <div class="table-responsive d-none">
                     <table class="table table-striped ">
                         <thead>
                             <tr>

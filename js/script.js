@@ -1,5 +1,6 @@
 let filter = 'name';
-let allUsers = [];
+let allUsers;
+
 window.onload = async () => {
     const endpoint = `https://jsonplaceholder.typicode.com/users/`;
 
@@ -9,17 +10,21 @@ window.onload = async () => {
         
         popolateTable(data);
         allUsers = data;
-        console.log(data);
 
     } catch (error) {
         console.log(error);
-    }
+    } finally {
+            document.querySelector('.table-responsive').classList.remove('d-none');
+            document.querySelector('.spinner-container').classList.add('d-none');
+        }
 }
 
 const popolateTable = (users) => { 
     const table = document.querySelector('table');
     table.innerHTML = '';
+
     const tbody = document.createElement('tbody');
+
     const thead = document.createElement('thead');
     thead.innerHTML = /* HTML */ `
         <tr>
@@ -31,7 +36,7 @@ const popolateTable = (users) => {
     
     users.map(user => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `
+        tr.innerHTML = /* HTML */`
             <th scope="row">${user.id}</td>
             <td>${user.name}</td>
             <td>${user.username}</td>
@@ -49,17 +54,18 @@ document.querySelector('select').addEventListener('change', (e) => {
 document.querySelector('input').addEventListener('input', () => {
     const inputValue = document.querySelector('input').value.trim();
     const alertContainer = document.querySelector('.results-not-found');
-    let data;
     
     if (inputValue.length >= 3) {
-        data = allUsers.filter(user => user[filter].toLowerCase().includes(inputValue.toLowerCase()));
+        let data = allUsers.filter(user => user[filter].toLowerCase().includes(inputValue.toLowerCase()));
         if (data.length === 0) {
             document.querySelector('table').innerHTML = '';
 
             alertContainer.classList.remove('d-none');
             alertContainer.innerHTML = /* HTML */ `
-                <div class="alert alert-danger" role="alert">
-                    <p class="m-0">No results found</p>
+                <div class="col-12">
+                    <div class="alert alert-danger" role="alert">
+                        <p class="m-0">No results found</p>
+                    </div>
                 </div>`;
             return;
 
