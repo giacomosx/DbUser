@@ -17,64 +17,46 @@
                     <li class="nav-item">
                         <a href="index.html" class="nav-link active">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link disabled ">About</a>
-                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid mb-3 ">
         <div class="row py-3 ">
             <div class="col-12 col-md-4 offset-md-8 ">
                 <div class="searchbar d-flex gap-2">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <select class="form-select form-select-sm" id="searchOptions">
-                        <option selected>Choose one</option>
+                        <option selected disabled>All</option>
                         <option value="name">Name</option>
                         <option value="username">Username</option>
                         <option value="email">Email</option>
                     </select>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 d-none results-not-found"></div>
+        </div>
         <div class="row py-5">
             <div class="col-12">
-                <table class="table table-striped ">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2"><NAME></td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th scope="col">#id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
     <footer class="container-fluid bg-body-tertiary py-3 fixed-bottom d-flex  justify-content-center align-items-center ">
-        <p class="m-0">&copy;2024 - <a href="http://github.com/giacomosx" target="_blank" rel="noopener noreferrer" class="link-body-emphasis text-decoration-none ">@giacomosx</a></p>
+        <p class="m-0 small">&copy;2024 - <a href="http://github.com/giacomosx" target="_blank" rel="noopener noreferrer" class="link-body-emphasis text-decoration-none ">@giacomosx</a></p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
