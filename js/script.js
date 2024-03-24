@@ -8,7 +8,7 @@ window.onload = async () => {
         const response = await fetch(endpoint);
         const data = await response.json();
         
-        popolateTable(data);
+        populateTable(data);
         allUsers = data;
 
     } catch (error) {
@@ -19,7 +19,7 @@ window.onload = async () => {
         }
 }
 
-const popolateTable = (users) => { 
+const populateTable = (users) => { 
     const table = document.querySelector('table');
     table.innerHTML = '';
 
@@ -49,6 +49,8 @@ const popolateTable = (users) => {
 
 document.querySelector('select').addEventListener('change', (e) => {
     filter = e.target.value;
+    document.querySelector('input').removeAttribute('disabled');
+    document.querySelector('input').focus()
 })
 
 document.querySelector('input').addEventListener('input', () => {
@@ -69,9 +71,9 @@ document.querySelector('input').addEventListener('input', () => {
                 </div>`;
             return;
 
-        } else popolateTable(data);
+        } else populateTable(data);
     } else{
         alertContainer.classList.add('d-none');
-        popolateTable(allUsers);
+        populateTable(allUsers);
     }
 })
